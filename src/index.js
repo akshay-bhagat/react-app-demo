@@ -12,10 +12,29 @@ function showCurrentTime(){
     return <h2> Current Time :: {new Date().toLocaleTimeString()}</h2>
 }
 
-setInterval(()=>{
+// Component using Function
+function SuperHeroDetails(props){
+    return <h1>Hello {props.name}, {props.city} needs you!! </h1>
+}
+
+// Component using class
+// class SuperHeroDetails extends React.Component{
+//     render(){
+//         return <h1>Hello {this.props.name}, {this.props.city} needs you!! </h1>
+//     }
+// }
+
+function Show(){
+return <div>
+            <SuperHeroDetails name='Captain America' city='New York' />
+            <SuperHeroDetails name='Iron Man' city='New York' />
+    </div>
+}
+
+
     ReactDOM.render(
-         showCurrentTime(),
+         <Show />,
         document.getElementById('root')
     );
 
-},1000)
+
