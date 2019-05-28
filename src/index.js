@@ -8,7 +8,14 @@ function showDetails(character='Batman', city='Gotham'){
         </div>
 }
 
-ReactDOM.render(
-     showDetails('Iron Man', 'New York'),
-    document.getElementById('root')
-);
+function showCurrentTime(){
+    return <h2> Current Time :: {new Date().toLocaleTimeString()}</h2>
+}
+
+setInterval(()=>{
+    ReactDOM.render(
+         showCurrentTime(),
+        document.getElementById('root')
+    );
+
+},1000)
