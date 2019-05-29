@@ -95,10 +95,48 @@ class IncrementValue extends React.Component{
     }
 }
 
+// Switch betwen Components
+
+function ShowBulb(props){
+    if(props.value){
+        return <div>
+            <img src="https://www.w3schools.com/js/pic_bulbon.gif"></img>
+        </div>
+    }else{
+        return <div>
+        <img src="https://www.w3schools.com/js/pic_bulboff.gif"></img>
+    </div>
+    }
+}
+class Bulb extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            value : true
+        }
+    }
+
+    changeState = () => {
+        this.setState({
+            value : !this.state.value
+        });
+    }
+
+    render(){
+        return(
+            <div>
+                <ShowBulb value={this.state.value} />
+                <h3>Click on Button to change the state of Bulb...</h3>
+                <button onClick={this.changeState}>{this.state.value? 'ON' : 'OFF'}</button>
+                <p>Picture Credit : https://www.w3schools.com </p>
+            </div>
+        );
+    }
+}
 
 
     ReactDOM.render(
-        <IncrementValue />,
+        <Bulb />,
        document.getElementById('root')
    );
 
