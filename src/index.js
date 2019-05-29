@@ -71,8 +71,34 @@ return <div>
     // }
     // setInterval(UpdateRealTime,1000); // refresh component every 1 second..
 
+    //Increment the counter value by click event
+class IncrementValue extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            counter : 0
+        }
+    }
+
+    increment = (e) => {
+        this.setState({
+            counter : this.state.counter + 1
+         });
+    }
+
+
+    render(){
+        return <div>
+            <h2>Current Value :: {this.state.counter}</h2>
+        <button onClick={this.increment}>Click me to Add value...</button>
+        </div>
+    }
+}
+
+
+
     ReactDOM.render(
-        <ShowClock />,
+        <IncrementValue />,
        document.getElementById('root')
    );
 
